@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('create') {
+            steps {
+               sh "python3 p.py"
+               echo "create"
+            }
+        }
+        stage('install') {
+            steps {
+               echo "install"
+            }
+        }
+        stage('test') {
+            steps {
+                sh "python3 app.py"
+                echo "test"
+            }
+        }
+
