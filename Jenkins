@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment{
         dockerImage =''
-        registry = 'hemashree08022001gowda@gmail.com/hema'
+        registry = 'hemashree08022001gowda@gmail.com/jenkins/jenkins:lts-jdk11'
         }
     stages {
         stage('Checkout') {
