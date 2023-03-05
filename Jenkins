@@ -1,14 +1,20 @@
 pipeline {
     agent any
+    environment{
+        dockerImage =''
+        registry = 'hemashree08022001gowda@gmail.com/hema'
+        }
     stages {
         stage('create') {
             steps {
                echo "create"
             }
         }
-        stage('install') {
+        stage('Build Docker image') {
             steps {
-               echo "install"
+            script{
+            dockerImage = docker.build registry
+               }
             }
         }
         stage('test') {
