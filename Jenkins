@@ -5,9 +5,10 @@ pipeline {
         registry = 'hemashree08022001gowda@gmail.com/hema'
         }
     stages {
-        stage('create') {
+        stage('Checkout') {
             steps {
-               echo "create"
+               sh "python3 app.py"
+               checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hemashreergowda/bug1']]])
             }
         }
         stage('Build Docker image') {
@@ -15,12 +16,6 @@ pipeline {
             script{
             dockerImage = docker.build registry
                }
-            }
-        }
-        stage('test') {
-            steps {
-                sh "python3 app.py"
-                echo "test"
             }
         }
      }
