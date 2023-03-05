@@ -15,7 +15,7 @@ pipeline {
             steps {
             script{
             
-            dockerImage=docker.build -t "hema08022001/pythonapp"
+            dockerImage=docker.build -t registry
 
                }
             }
