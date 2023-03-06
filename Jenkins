@@ -12,6 +12,12 @@ pipeline {
                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hemashreergowda/bug1']]])
             }
         }
+        stage('Cloning Git')
+        {
+            steps{
+                    git 'https://github.com/hemashreergowda/bug1.git'           
+}
+}
         stage('Build Docker image') {
             steps {
                 script{
