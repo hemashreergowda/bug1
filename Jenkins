@@ -15,7 +15,7 @@ pipeline {
         stage('Cloning Git')
         {
             steps{
-                   sh 'git 'https://github.com/hemashreergowda/bug1.git''           
+                   sh 'git https://github.com/hemashreergowda/bug1.git'          
 }
 }
         stage('Build Docker image') {
