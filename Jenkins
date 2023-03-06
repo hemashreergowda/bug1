@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment{
         dockerImage =''
-        registry = 'hema08022001/pythonapp'
+        registry = 'hema08022001/jenkin'
         }
     stages {
         stage('Checkout') {
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script{
                     sudo chmod 666 '/var/run/docker.sock'
-                    dockerImage = docker.build registry
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
                
             }
