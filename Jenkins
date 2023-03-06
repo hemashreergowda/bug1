@@ -15,9 +15,6 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 script{
-                    sudo groupadd docker
-                    sudo usermod -aG docker $USER
-                    sudo chmod 666 "/var/run/docker.sock"
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
                
